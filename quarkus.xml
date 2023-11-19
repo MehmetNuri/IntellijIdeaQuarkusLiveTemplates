@@ -1,0 +1,166 @@
+<templateSet group="quarkus">
+  <template name="rwgetm" value="@jakarta.ws.rs.GET&#10;@jakarta.ws.rs.Path(&quot;$PATH$&quot;)&#10;public io.smallrye.mutiny.Uni&lt;Response&gt; get$NAME$() {&#10;    $END$&#10;}" description="Web Get Method" toReformat="false" toShortenFQNames="true">
+    <variable name="PATH" expression="&quot;PATH&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="&quot;NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="logger" value="private final org.jboss.logging.Logger LOG = org.jboss.logging.Logger.getLogger($FILE$.class);&#10;" description="Logger" toReformat="false" toShortenFQNames="true">
+    <variable name="FILE" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="rwpostm" value="@jakarta.ws.rs.POST&#10;@jakarta.ws.rs.Path(&quot;/save/$PATH$&quot;)&#10;public io.smallrye.mutiny.Uni&lt;Response&gt; save$NAME$($ENTITY$  $ENTITY_$) {&#10;    $END$&#10;}" description="Web Get Method" toReformat="false" toShortenFQNames="true">
+    <variable name="PATH" expression="&quot;PATH&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="&quot;METHOD_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="ENTITY" expression="&quot;ENTITY&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="ENTITY_" expression="camelCase(ENTITY)" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="rwputm" value="@jakarta.ws.rs.PUT&#10;@jakarta.ws.rs.Path(&quot;/update/{id}&quot;)&#10;public io.smallrye.mutiny.Uni&lt;Response&gt; update$NAME$(@PathParam(&quot;id&quot;)$ID_TYPE$ id, $ENTITY$  $ENTITY_$) {&#10;    $END$&#10;}" description="Web Get Method" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="&quot;NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="ID_TYPE" expression="&quot;ID_TYPE" defaultValue="" alwaysStopAt="true" />
+    <variable name="ENTITY" expression="&quot;ENTITY&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="ENTITY_" expression="camelCase(ENTITY)" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="rwdelm" value="@jakarta.ws.rs.DELETE&#10;@jakarta.ws.rs.Path(&quot;/delete/{id}&quot;)&#10;public io.smallrye.mutiny.Uni&lt;Response&gt; delete$NAME$(@PathParam(&quot;id&quot;)$ID_TYPE$ id) {&#10;    $END$&#10;}" description="Web Get Method" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="&quot;NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="ID_TYPE" expression="&quot;ID_TYPE&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="aps" value="@jakarta.enterprise.context.ApplicationScoped" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="csjson" value="@jakarta.ws.rs.Consumes(jakarta.ws.rs.core.MediaType.APPLICATION_JSON)" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="prdjson" value="@jakarta.ws.rs.Produces(jakarta.ws.rs.core.MediaType.APPLICATION_JSON)" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="inj" value="@jakarta.inject.Inject&#10;$END$" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="confp" value="@org.eclipse.microprofile.config.inject.ConfigProperty(name = &quot;$NAME$&quot;, defaultValue=&quot;!&quot;)&#10;$CONF_TYPE$ $CONF_NAME$;        &#10;$END$" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="&quot;NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="CONF_TYPE" expression="&quot;CONF_TYPE&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="CONF_NAME" expression="&quot;CONF_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="postc" value="@jakarta.annotation.PostConstruct&#10;void init() {&#10;    $END$&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="pred" value="@jakarta.annotation.PreDestroy&#10;private void destroy() {&#10;    $END$&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="prov" value="@jakarta.ws.rs.ext.Provider" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="qpar" value="@jakarta.ws.rs.QueryParam(&quot;$PARAM$&quot;) $PARAM_TYPE$ $PARAM_$ $END$" toReformat="false" toShortenFQNames="true">
+    <variable name="PARAM" expression="&quot;PARAMETER_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="PARAM_TYPE" expression="&quot;PARAMETER_TYPE&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="PARAM_" expression="camelCase(PARAM)" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="patp" value="@jakarta.ws.rs.PathParam(&quot;$PARAM$&quot;) $PARAM_TYPE$ $PARAM_$ $END$" toReformat="false" toShortenFQNames="true">
+    <variable name="PARAM" expression="&quot;PARAMETER_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="PARAM_TYPE" expression="&quot;PARAMETER_TYPE&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="PARAM_" expression="camelCase(PARAM)" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="regresc" value="@org.eclipse.microprofile.rest.client.inject.RegisterRestClient(baseUri=&quot;$URL$&quot;)" toReformat="false" toShortenFQNames="true">
+    <variable name="URL" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="cliqpar" value="@io.quarkus.rest.client.reactive.ClientQueryParam(name = &quot;$PARAMETER_NAME$&quot;, value = &quot;$PARAMETER_VALUE$&quot;)" toReformat="false" toShortenFQNames="true">
+    <variable name="PARAMETER_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PARAMETER_VALUE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="ronvt" value="@io.smallrye.common.annotation.RunOnVirtualThread" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="resc" value="@org.eclipse.microprofile.rest.client.inject.RestClient $INTERFACE$ $INTERFACE_$;" toReformat="false" toShortenFQNames="true">
+    <variable name="INTERFACE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="INTERFACE_" expression="camelCase(INTERFACE)" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="nblo" value="@io.smallrye.common.annotation.NonBlocking" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="loifp" value="@io.quarkus.arc.lookup.LookupIfProperty(name = &quot;$NAME$&quot;, stringValue=&quot;true&quot;)&#10;$END$" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="&quot;NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="sing" value="@jakarta.inject.Singleton" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="dep" value="@jakarta.enterprise.context.Dependent" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="resco" value="@jakarta.enterprise.context.RequestScoped" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="regref" value="@io.quarkus.runtime.annotations.RegisterForReflection" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="wsession" value="@io.quarkus.hibernate.reactive.panache.common.WithSession" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="path" value="@jakarta.ws.rs.Path(&quot;$PATH$&quot;)" toReformat="false" toShortenFQNames="true">
+    <variable name="PATH" expression="&quot;PATH&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+</templateSet>
